@@ -246,7 +246,7 @@ int main(int argc, char** args)
 
 	// read progress within layer
 	sprintf(filename, "progress_%s", version);
-    fpProgress = fopen(filename, "r");
+    fpProgress = fopen(filename, "a+");
 	if(fpProgress != NULL && (read = getline(&line, &len, fpProgress)) != -1) {
 		progress = atoi(line);
 	}
@@ -254,7 +254,7 @@ int main(int argc, char** args)
 
 	// read current layer
     sprintf(filename, "layer_progress_%s", version);
-    fpLayer = fopen(filename, "r");
+    fpLayer = fopen(filename, "a+");
 	if(fpLayer != NULL && (read = getline(&line, &len, fpLayer)) != -1) {
 		layerCount = atoi(line);
 	}
