@@ -7,7 +7,6 @@ A tool to get the crafting recipe for any craftable color of leather armor can b
 To calculate the combinations for yourself or to calculate combinations given a specific otherwise unobtainable base color `calculateCombinations.c` can be used.
 The programm used POSIX-Threads, so it can only be run on linux.
 The programm can be compiled using `gcc -o calculateCombinations calculateCombinations.c -lpthread`.
-To run the programm the files `layer_progress_1-12` and `progress_1-12` must exist(`touch layer_progress_1-12`, `touch progress_1-12`).
 
 `colorOptions_depth_8.log` contains a list of all possible and unique dye combinations using up to 8 dyes. Each dye is represented using 5 bits in the uint64_t represented by each row. (0 = no color(end of dye list), 1 = black, 15 = white etc(< 1.13 color subids)). The file is used as input for `calculateCombinations.c`.
 
