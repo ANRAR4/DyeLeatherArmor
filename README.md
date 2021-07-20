@@ -2,7 +2,7 @@
 
 This repository contains programs for finding crafting recipes for specific colours of leather armor in Minecraft.
 
-A tool to get the crafting recipe for any craftable colour of leather armor can be found at https://anrar4.github.io/DyeLeatherArmor/
+A tool to generate a crafting recipe for any craftable colour of leather armor can be found at https://anrar4.github.io/DyeLeatherArmor/
 
 To calculate the combinations for yourself or to calculate combinations given a specific otherwise unobtainable base colour `calculateCombinations.c` can be used.
 The programm uses POSIX-Threads, so it can only be run on linux.
