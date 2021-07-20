@@ -1,6 +1,6 @@
 ## Dye leather armor
 
-This repository contains programs for finding crafting recipes for specific colours of leather armor in Minecraft.
+This repository contains programs for finding crafting recipes for specific colours of leather armor in Minecraft(Java Edition).
 
 A tool to generate a crafting recipe for any craftable colour of leather armor can be found at https://anrar4.github.io/DyeLeatherArmor/
 
