@@ -35,7 +35,7 @@ struct colourMix {
 	uint64_t newColours;
 };
 
-// struct to hold information abount one rgb colour
+// struct to hold information about one rgb colour
 struct rgb_colour {
 	uint8_t red;
 	uint8_t green;
@@ -44,7 +44,7 @@ struct rgb_colour {
 
 static char receivedSignal;
 
-// Interrupt(Strg + C) handler, used to guarantee consistency when the programm is terminated
+// Signal(Strg + C) handler, used to guarantee consistency when the programm is terminated
 void exit_after_finishing(int sig)
 {
     signal(SIGINT, exit_after_finishing);
