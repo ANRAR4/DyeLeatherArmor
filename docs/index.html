@@ -3,6 +3,14 @@
 <head>
 <title>DyeLeatherArmor - Craftingrecipes for all possible leather armor colours</title>
 <meta name="google-site-verification" content="rSqy1Ymn3lWwFSYNeTQ7_rY4lVhr8tXpUOS_zpAk9d0" />
+<script>
+function onInputA() {
+	document.getElementById("color2").value = document.getElementById("color").value
+}
+function onInputB() {
+	document.getElementById("color").value = document.getElementById("color2").value
+}
+</script>
 </head>
 <body>
 <p>This tool allows you to generate a craftingrecipe for any craftable colour of leather armor in Minecraft(Java Edition)</p>
@@ -15,7 +23,8 @@
 	</select>
 	<br>
 	<label for="color">Colour(in hex notation):</label>
-	<input type="text" id="color" name="color" value="DEC0DE"><br>
+	<input type="text" id="color" name="color" value="DEC0DE" oninput="onInputA()"> or 
+	<input type="color" id="color2" name="color2" oninput="onInputB()"><br>
 	<label for="closest"><a title="Finds the closest craftable colour if the colour isn't craftable(Euclidean distance)">Check for closest match:</a></label>
 	<input type="checkbox" id="closest" name="closest" value="1"><br><br>
 	<input type="submit" value="Get recipe">
