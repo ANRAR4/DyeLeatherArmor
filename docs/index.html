@@ -13,11 +13,13 @@ function onInputB() {
 function changeAvailableDistMeasures() {
 	let version = document.getElementById("version").value;
 	let ele = document.getElementById("closest");
+	let oldValue = ele.value;
 	ele.innerHTML = '';
 	for(let val of [['-', '-'], ['euclidean', 'by distance (euclidean)']]) {
 		let opt = document.createElement('option');
 		opt.value = val[0];
 		opt.innerHTML = val[1];
+		if(oldValue === val[0]) opt.selected = true;
 		ele.appendChild(opt);
 	}
 	if(version === '1-12') {
@@ -25,6 +27,7 @@ function changeAvailableDistMeasures() {
 		let opt = document.createElement('option');
 		opt.value = val[0];
 		opt.innerHTML = val[1];
+		if(oldValue === val[0]) opt.selected = true;
 		ele.appendChild(opt);
 	}
 }
