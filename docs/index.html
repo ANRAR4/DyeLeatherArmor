@@ -5,18 +5,36 @@
 <meta name="google-site-verification" content="rSqy1Ymn3lWwFSYNeTQ7_rY4lVhr8tXpUOS_zpAk9d0" />
 <script>
 function onInputA() {
-	document.getElementById("color2").value = document.getElementById("color").value
+	document.getElementById("color2").value = (String(document.getElementById("color").value).substr(0, 1) === '#' ? document.getElementById("color").value : '#' + document.getElementById("color").value)
 }
 function onInputB() {
 	document.getElementById("color").value = document.getElementById("color2").value
 }
+function changeAvailableDistMeasures() {
+	let version = document.getElementById("version").value;
+	let ele = document.getElementById("closest");
+	ele.innerHTML = '';
+	for(let val of [['-', '-'], ['euclidean', 'by distance (euclidean)']]) {
+		let opt = document.createElement('option');
+		opt.value = val[0];
+		opt.innerHTML = val[1];
+		ele.appendChild(opt);
+	}
+	if(version === '1-12') {
+		let val = ['ciede2000', 'by perceived distance (CIEDE2000)'];
+		let opt = document.createElement('option');
+		opt.value = val[0];
+		opt.innerHTML = val[1];
+		ele.appendChild(opt);
+	}
+}
 </script>
 </head>
-<body>
+<body onload="changeAvailableDistMeasures()">
 <p>This tool allows you to generate a craftingrecipe for any craftable colour of leather armor in Minecraft(Java Edition)</p>
-<form action="https://xjca.de/minecraft/dyeleatherarmor/getRecipeForColor.php" method="get" target="F1">
+<form action="https://www.xjca.de/minecraft/dyeleatherarmor/getRecipeForColor.php" method="get" target="F1">
 	<label for="version">Version:</label>
-	<select id="version" name="version">
+	<select id="version" name="version" onchange="changeAvailableDistMeasures()">
 		<option value="1-12">1.12 and above</option>
 		<option value="1-4-3">1.4.3 to 1.11.2</option>
 		<option value="1-4-2">1.4.2</option>
@@ -25,8 +43,10 @@ function onInputB() {
 	<label for="color">Colour(in hex notation):</label>
 	<input type="text" id="color" name="color" value="DEC0DE" oninput="onInputA()"> or 
 	<input type="color" id="color2" name="color2" oninput="onInputB()"><br>
-	<label for="closest"><a title="Finds the closest craftable colour if the colour isn't craftable(Euclidean distance)">Check for closest match:</a></label>
-	<input type="checkbox" id="closest" name="closest" value="1"><br><br>
+	<label for="closest"><a title="Finds the closest craftable colour if the specified colour isn't craftable">Check for closest match:</a></label>
+	<select id="closest" name="closest">
+	</select>
+	<br><br>
 	<input type="submit" value="Get recipe">
 </form>
 <iframe frameborder="0" height="600px" width="100%" scrolling="yes" src="https://www.xjca.de/minecraft/dyeleatherarmor/getRecipeForColor.php?empty" name="F1">
